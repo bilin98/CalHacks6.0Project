@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>Bear Buddies</title>
+ 
+	
+	<link rel="stylesheet" href="map.css" />
+	
+	
+  </head>
+  
+  <body>
+    <div class="text">
+	  <h1>Connect me!</h1>
+	  <h2><em>Buddy System | Campus Activities | Fitness | Food</em></h2>
+	  <h3><a href="Buddy_System.html">Buddy System</a></h3>
+	  <h3><a href="Campus_Activities.html">Campus Activities</a></h3>
+	  <h3><a href="Fitness.html">Fitness</a></h3>
+	  <h3><a href="Food.html">Food</a></h3> 
+	 
+	  <h4>Make a post!</h4>
+	  <input placeholder="I want to go to..." id="input"></input>
+	  
+	  <button id="button">Post</button>
+	</div>
+	
+	
+	<div class="postList"> 
+	  <!--
+	  the structure of postList and post   
+	  NOTE: postList has to exist in the html file 
+	  <div class="post">
+	    <p>Hey there!</p>
+	  </div>--> 
+	</div>
+	
+	<div id="map"></div>
+	
+	
+	<script src="map.js"></script>
+	
+    <script>
+		function initMap(){
+		  var options = {
+			zoom: 15.25,
+			center:{lat:37.8715, lng:-122.2600}
+		  }
+		  var map = new google.maps.Map(document.getElementById('map'), options);
+		  /*
+		  var marker = new google.maps.Marker({
+			position:{lat:37.868538, lng:-122.259032},
+			map:map,
+		  });
+
+		  var infoWindow = new google.maps.InfoWindow({
+			content: '<h1>Sheng Kee Bakery</h1>'
+		  });
+
+		  marker.addListener('click', function(){
+			infoWindow.open(map, marker);
+		  });
+		  */
+
+		  addMarker({lat:37.868538, lng:-122.259032});
+		  addMarker({lat:37.872574, lng:-122.260880});
+		  addMarker({lat:37.871888, lng:-122.269101});
+
+		  function addMarker(coords){
+			var marker = new google.maps.Marker({
+			  position:coords,
+			  map:map,
+			});
+		  }
+		}
+   </script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_-v9eqv1ppjDNhaMBiwhIVp9IAz9lTyw&callback=initMap"
+    async defer></script>
+	
+	
+	<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <!-- <script src="/__/firebase/7.2.2/firebase-app.js"></script> -->
+    <script src="/__/firebase/7.2.2/firebase.js"></script>
+	<!-- Initialize Firebase -->
+	<script src="/__/firebase/init.js"></script> 
+	
+  </body>
+</html>
